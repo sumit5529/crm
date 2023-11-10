@@ -1,0 +1,51 @@
+{% extends 'customer/base.html' %}
+ {% comment %} <!DOCTYPE html>
+<html>
+<head>
+    <title>Add Customer</title>
+</head>
+<body>
+    <h2>Add Customer</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Customer</button>
+    </form>
+</body>
+</html> {% endcomment %}
+
+
+{% block body %} 
+<div class = "container">
+    <div class = "row">
+        <div class = "col-md-6 offset-md-4">
+            <div class = "card">
+                <div class = "card-header text-white bg-info">
+                    <div class = "card-title">
+                        Add Customer
+                    </div>
+                </div>
+
+                <div class = "card-body">
+                    <form method = "POST">
+                        {%csrf_token%}
+                        {% for field in form %}
+                        <div class = "form-group">
+                        {{field.name}}
+                        </br>
+                        {{field}}
+                        </div>
+                        {% endfor %}
+                    </br>
+                        {% comment %} <button  class ="btn-info" type = "submit">Add</button> {% endcomment %}
+                         <button type="submit" class="btn btn-dark">Add</button> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %} 
+
+
